@@ -182,5 +182,4 @@ router.get('/recentCategory/:category/:url',(req,res) => {
     })
 })
 
-
 module.exports = router;

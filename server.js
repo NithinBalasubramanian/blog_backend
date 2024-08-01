@@ -37,3 +37,19 @@ app.use(cors());
 app.use('/api',route);
 
 app.listen(PORT,console.log(`Server started at port - v2 ${PORT}`))
+
+// -------------------------------------- Apollo graphql setup ----------------------------------------------------------------------
+
+const { ApolloServer } = require("@apollo/server");
+const { startStandaloneServer } = require("@apollo/server/standalone");
+// Sample data for products (you can replace this with your database)
+
+const { typeDefs , resolvers} = require("./graphql/index")
+
+const server = new ApolloServer({ typeDefs, resolvers });
+
+startStandaloneServer(server, {
+  listen: { port: 4000 },
+});
+
+//  http://localhost:4000/ for apollo graphql page
